@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "dsznajder.es7-react-js-snippets",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "formulahendry.auto-rename-tag",
+    "formulahendry.auto-close-tag",
+    "ecmel.vscode-html-css",
+    "christian-kohler.path-intellisense",
+    "vincaslt.highlight-matching-tag",
+    "oderwat.indent-rainbow",
+    "naumovs.color-highlight",
+    "usernamehw.errorlens",
+    "pkief.material-icon-theme",
+    "dracula-theme.theme-dracula"
+  ]
+}
