@@ -208,14 +208,29 @@ git checkout main
 # Passo B: Garanta que sua main local está sincronizada com o GitHub
 git pull origin main
 
-# Passo C: Traga tudo que você fez na dev para a main (Merge)
-git merge dev
+# Passo C: Faça o merge com --no-ff (cria um commit exclusivo de produção para a Vercel)
+git merge dev --no-ff -m "merge: publica melhorias da branch dev na producao"
 
 # Passo D: Envie para o GitHub para acionar a Vercel!
 git push origin main
 ```
 
-🚀 **Pronto!** O webhook da Vercel detecta o push na `main`, roda o build e coloca as alterações no ar em produção.
+> ⚠️ **Por que usar `--no-ff`?**
+> Se você der push na branch `dev` primeiro, a Vercel cria uma versão de *Preview* para aquele commit.
+> Se você juntar na `main` sem o `--no-ff` (modo padrão fast-forward), o Git reutiliza o mesmo código de commit. A Vercel então acha que o commit já foi processado e não re-publica em produção.
+> Usando `git merge dev --no-ff`, o Git cria um **novo commit oficial de produção**, forçando a Vercel a atualizar o link principal imediatamente!
+
+---
+
+### 🚀 Alternativa Direta: "Promote to Production" no Painel da Vercel
+
+Se você já enviou a branch `dev` para o GitHub e a Vercel gerou um Preview com sucesso:
+
+1. Abra a [Vercel Dashboard](https://vercel.com/dashboard).
+2. Acesse seu projeto e vá na aba **Deployments**.
+3. No deployment da branch `dev`, clique nos **três pontinhos (`...`)**.
+4. Clique em **"Promote to Production"**.
+5. Em 2 segundos, aquele deploy vira o site oficial de produção!
 
 ---
 
