@@ -1,0 +1,1 @@
+public/: Contém arquivos que não precisam passar pelo processamento do React (bundler). O index.html principal vive aqui, além de favicons e imagens estáticas que você quer acessar diretamente via URL.

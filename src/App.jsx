@@ -4,8 +4,7 @@ export default function App() {
       <div className="max-w-md text-center space-y-4">
         <h1 className="text-3xl font-bold text-sky-400">JR Piscinas</h1>
         <p className="text-slate-300 text-sm">
-          Estrutura inicial configurada com sucesso com React, Vite e Tailwind
-          CSS.
+          Estrutura inicial configurada com sucesso 
         </p>
       </div>
     </div>
