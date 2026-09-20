@@ -158,6 +158,7 @@ gitGraph
 ```
 
 ### 1️⃣ Criar a branch `dev` (Fazer uma única vez)
+
 Para criar e já entrar na branch `dev`:
 
 ```bash
@@ -165,14 +166,17 @@ git checkout -b dev
 ```
 
 > **Para verificar em qual branch você está:**
+>
 > ```bash
 > git branch
 > ```
+>
 > A branch ativa terá um asterisco verde na frente: `* dev`.
 
 ---
 
 ### 2️⃣ Seu Dia a Dia de Trabalho (Sempre na branch `dev`)
+
 Faça suas alterações no código, teste à vontade e faça commits normalmente:
 
 ```bash
@@ -188,11 +192,13 @@ git commit -m "feat: ajustando detalhes no componente carrossel"
 # 4. (Opcional) Salva a branch dev no GitHub para backup na nuvem
 git push origin dev
 ```
+
 > 🛡️ **Segurança Total:** O seu site oficial de produção na Vercel **NÃO** será alterado por esse push! Ele continuará exibindo com segurança a versão estável da branch `main`.
 
 ---
 
 ### 3️⃣ Quando tudo estiver pronto para ir para o ar (Deploy na Vercel)
+
 Quando você terminar suas alterações na `dev` e validar com `npm run build`, siga este ciclo de 4 passos para publicar:
 
 ```bash
@@ -214,19 +220,21 @@ git push origin main
 ---
 
 ### 4️⃣ Voltar para a `dev` para continuar programando
+
 Assim que terminar o push na `main`, volte imediatamente para a sua branch de trabalho:
 
 ```bash
 git checkout dev
 ```
+
 Agora você pode continuar programando novas funcionalidades sem medo de afetar o site no ar.
 
 ---
 
 ### ⚙️ Dica Bônus Vercel: Evitar deploys de preview da branch `dev`
-Por padrão, a Vercel pode gerar links de *"Preview"* para a branch `dev`. Se você quiser que a Vercel ignore 100% qualquer push da `dev` e **apenas construa a `main`**:
+
+Por padrão, a Vercel pode gerar links de _"Preview"_ para a branch `dev`. Se você quiser que a Vercel ignore 100% qualquer push da `dev` e **apenas construa a `main`**:
 
 1. Acesse seu projeto na **Vercel** $\rightarrow$ **Settings** $\rightarrow$ **Git**.
 2. No campo **Production Branch**, certifique-se de que está selecionado `main`.
 3. Na seção **Ignored Build Step**, você pode marcar para ignorar branches que não sejam a de produção, ou simplesmente ignorar as URLs de preview.
-
