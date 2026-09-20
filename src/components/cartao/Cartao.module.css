@@ -33,14 +33,19 @@
 }
 
 .logo {
-  height: 62px;
-  width: auto;
+  height: 64px;
+  width: 64px;
   object-fit: contain;
-  border-radius: 10px;
-  border: 1px solid #c4dcf0;
-  padding: 4px;
+  border-radius: 50%;
   background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(9, 23, 40, 0.08);
+  border: 2px solid #bae6fd;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+  display: block;
+  transition: transform 0.25s ease;
+}
+
+.logo:hover {
+  transform: scale(1.06);
 }
 
 .infoCabecalho {

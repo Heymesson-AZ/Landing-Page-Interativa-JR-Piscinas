@@ -216,7 +216,7 @@ git push origin main
 ```
 
 > ⚠️ **Por que usar `--no-ff`?**
-> Se você der push na branch `dev` primeiro, a Vercel cria uma versão de *Preview* para aquele commit.
+> Se você der push na branch `dev` primeiro, a Vercel cria uma versão de _Preview_ para aquele commit.
 > Se você juntar na `main` sem o `--no-ff` (modo padrão fast-forward), o Git reutiliza o mesmo código de commit. A Vercel então acha que o commit já foi processado e não re-publica em produção.
 > Usando `git merge dev --no-ff`, o Git cria um **novo commit oficial de produção**, forçando a Vercel a atualizar o link principal imediatamente!
 

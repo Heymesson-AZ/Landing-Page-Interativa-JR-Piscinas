@@ -10,7 +10,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col justify-between">
       <BotaoFlutuante idDestino="contato" />
 
-      {/* 🧭 1. Menu de Navegação */}
+      {/*1. Menu de Navegação */}
       <section id="inicio">
         <Menu />
       </section>
@@ -34,9 +34,6 @@ export default function App() {
         className="py-12 px-4 bg-slate-200/50 border-t border-b border-slate-300/70"
       >
         <div className="text-center max-w-xl mx-auto mb-4">
-          <span className="inline-block text-xs font-bold uppercase tracking-wider text-cyan-800 bg-cyan-100 border border-cyan-200 px-3 py-1 rounded-full mb-2">
-            Sobre o Parceiro
-          </span>
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
             Segurança, Ferramentas e Confiança
           </h2>

@@ -5,43 +5,86 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.9rem 2.5rem;
-  background: linear-gradient(90deg, #091728 0%, #0e243d 100%);
-  border-bottom: 1px solid #173659;
-  box-shadow: 0 4px 20px rgba(9, 23, 40, 0.25);
+  padding: 0.85rem 2.25rem;
+  background: linear-gradient(90deg, #071322 0%, #0c2036 50%, #071322 100%);
+  border-bottom: 1px solid #163658;
+  box-shadow: 0 4px 20px rgba(5, 12, 21, 0.35);
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
 }
 
-/* 2. Área da imagem da logo 🐬 */
-.logo {
+/* 2. Área da Marca da Empresa (Logo + Nome em Destaque) 🐬 */
+.marca {
   display: flex;
   align-items: center;
-}
-
-.logo img {
-  height: 46px;
-  width: auto;
-  object-fit: contain;
-  display: block;
-  border-radius: 8px;
-  background-color: #ffffff;
-  padding: 3px 6px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  gap: 0.9rem;
+  text-decoration: none;
   transition: transform 0.2s ease;
 }
 
-.logo img:hover {
-  transform: scale(1.03);
+.marca:hover {
+  transform: translateY(-1px);
+}
+
+/* Logo no Menu: Mesmo layout do cartão (redonda, branca por dentro, borda elegante e sombra) */
+.logoImg {
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 2px solid #38bdf8;
+  object-fit: contain;
+  display: block;
+  box-shadow: 0 2px 10px rgba(56, 189, 248, 0.35);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.marca:hover .logoImg {
+  transform: scale(1.06);
+  border-color: #7dd3fc;
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.6);
+}
+
+/* Tipografia da Empresa em Destaque */
+.infoMarca {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nomeEmpresa {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  color: #f8fafc;
+  line-height: 1.15;
+  transition: color 0.2s ease;
+}
+
+.marca:hover .nomeEmpresa {
+  color: #38bdf8;
+}
+
+.sloganEmpresa {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  color: #7dd3fc;
+  line-height: 1.2;
+  margin-top: 1px;
 }
 
 /* 3. Container dos links de navegação 🔗 */
 .navegacao ul {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: 1.25rem;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -52,17 +95,46 @@
   text-decoration: none;
   color: #e0f2fe; /* ❄️ Azul gelo suave e confortável */
   font-weight: 500;
-  font-size: 0.95rem;
-  padding: 0.4rem 0.75rem;
+  font-size: 0.92rem;
+  padding: 0.35rem 0.65rem;
   border-radius: 8px;
   transition: all 0.2s ease;
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
 .link:hover {
   color: #38bdf8; /* 🌊 Destaque azul piscina brilhante */
-  background-color: rgba(56, 189, 248, 0.1);
+  background-color: rgba(56, 189, 248, 0.12);
+}
+
+/* 📱 Responsividade para telas menores */
+@media (max-width: 860px) {
+  .cabecalho {
+    padding: 0.75rem 1rem;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+
+  .navegacao ul {
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .link {
+    font-size: 0.86rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .nomeEmpresa {
+    font-size: 1.2rem;
+  }
+
+  .logoImg {
+    height: 44px;
+    width: 44px;
+  }
 }
