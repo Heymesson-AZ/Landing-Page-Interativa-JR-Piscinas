@@ -1,4 +1,4 @@
-import logo from "../../assets/logo.jpeg";
+import logo from "../../assets/logo.png";
 import styles from "./Menu.module.css";
 import {
   FaHome,
@@ -11,18 +11,21 @@ import {
 export function Menu() {
   return (
     <header className={styles.cabecalho}>
-      {/* Logo com texto flutuante */}
-      <div className={styles.logo}>
-        <a
-          href="#inicio"
-          title="JM Piscinas - Ir para o início"
-          aria-label="JM Piscinas - Ir para a página inicial"
-          data-tooltip="Página Inicial"
-          data-tooltip-pos="baixo"
-        >
-          <img src={logo} alt="Logo JM Piscinas" />
-        </a>
-      </div>
+      {/* 🐬 Marca da Empresa: Logo sem fundo branco + Nome em Destaque */}
+      <a
+        href="#inicio"
+        className={styles.marca}
+        title="JM Piscinas - Ir para o início"
+        aria-label="JM Piscinas - Ir para a página inicial"
+        data-tooltip="Página Inicial"
+        data-tooltip-pos="baixo"
+      >
+        <img src={logo} alt="Logo JM Piscinas" className={styles.logoImg} />
+        <div className={styles.infoMarca}>
+          <span className={styles.nomeEmpresa}>JM Piscinas</span>
+          <span className={styles.sloganEmpresa}>Limpeza & Conservação</span>
+        </div>
+      </a>
 
       {/* Navegação com texto flutuante e ícones */}
       <nav className={styles.navegacao} aria-label="Menu principal">

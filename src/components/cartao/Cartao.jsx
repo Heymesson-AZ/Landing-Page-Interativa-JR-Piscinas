@@ -53,6 +53,7 @@ export function Cartao({
       <p className={styles.descricao}>{descricao}</p>
 
       {/* 📍 Cidades e regiões de atuação */}
+      
       <div className={styles.locais}>
         <strong className={styles.subtitulo}>Regiões Atendidas:</strong>
         <div className={styles.tagsContainer}>
