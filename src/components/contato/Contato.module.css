@@ -1,0 +1,282 @@
+/* Contato.module.css - Seção de Contato com Ações Diretas e QR Code */
+
+.secaoContato {
+  background: linear-gradient(135deg, #091728 0%, #0e2b4a 50%, #081a2e 100%);
+  border-top: 1px solid #1a3c63;
+  border-bottom: 1px solid #1a3c63;
+  padding: 4.5rem 1.5rem;
+  margin: 2.5rem 0 0 0;
+  box-shadow: inset 0 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.container {
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.etiqueta {
+  display: inline-block;
+  background-color: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 0.35rem 0.9rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+}
+
+.titulo {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #f0f9ff; /* ❄️ Branco gelo de alto contraste */
+  margin: 0 0 0.85rem 0;
+  letter-spacing: -0.5px;
+}
+
+.subtitulo {
+  font-size: 1.05rem;
+  color: #bae6fd; /* 🌊 Azul suave para leitura confortável */
+  line-height: 1.65;
+  margin: 0 auto 2.5rem auto;
+  max-width: 680px;
+}
+
+/* 📱 Grid de Contato: Coluna de Ações + Coluna de QR Code */
+.gridContato {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .gridContato {
+    grid-template-columns: 1.15fr 0.85fr;
+    text-align: left;
+  }
+}
+
+/* --- Coluna 1: Ações Diretas --- */
+.colunaAcoes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1rem;
+}
+
+.tituloColuna {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 0.2rem 0;
+}
+
+.descricaoColuna {
+  font-size: 0.92rem;
+  color: #94a3b8;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+}
+
+.botoesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.botaoWhatsapp {
+  background-color: #22c55e;
+  color: #ffffff;
+  padding: 1rem 1.4rem;
+  border-radius: 12px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.botaoWhatsapp:hover {
+  background-color: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.45);
+}
+
+.botaoTelefone {
+  background-color: #0284c7;
+  color: #ffffff;
+  padding: 1rem 1.4rem;
+  border-radius: 12px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.botaoTelefone:hover {
+  background-color: #0369a1;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(2, 132, 199, 0.45);
+}
+
+.icone {
+  font-size: 1.85rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.textoBotao {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.tituloAcao {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.subAcao {
+  font-size: 0.86rem;
+  opacity: 0.95;
+  font-weight: 500;
+}
+
+/* 🕒 Card do Horário de Atendimento */
+.cardHorario {
+  background-color: rgba(15, 36, 59, 0.65);
+  border: 1px solid #1a3c63;
+  border-radius: 10px;
+  padding: 0.85rem 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-top: 0.25rem;
+  text-align: left;
+}
+
+.iconeRelogio {
+  color: #38bdf8;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.tituloHorario {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #38bdf8;
+  font-weight: 700;
+  margin-bottom: 0.15rem;
+}
+
+.textoHorario {
+  display: block;
+  font-size: 0.88rem;
+  color: #cbd5e1;
+}
+
+/* --- Coluna 2: Card de QR Code --- */
+.cardQrCode {
+  background: linear-gradient(
+    180deg,
+    rgba(14, 38, 64, 0.75) 0%,
+    rgba(8, 26, 46, 0.9) 100%
+  );
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 16px;
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(4px);
+}
+
+.cabecalhoQr {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #38bdf8;
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 1.1rem;
+}
+
+.iconeQr {
+  font-size: 1.2rem;
+}
+
+.linkQrCode {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.molduraQr {
+  background-color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  border: 2px solid rgba(56, 189, 248, 0.35);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.molduraQr:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 28px rgba(56, 189, 248, 0.35);
+  border-color: #38bdf8;
+}
+
+.imagemQr {
+  width: 170px;
+  height: 170px;
+  display: block;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.instrucaoQr {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.1rem;
+  color: #bae6fd;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  max-width: 250px;
+}
+
+.instrucaoQr p {
+  margin: 0;
+}
+
+.iconeCamera {
+  color: #38bdf8;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.dicaClique {
+  font-size: 0.78rem;
+  color: #64748b;
+  margin-top: 0.45rem;
+}

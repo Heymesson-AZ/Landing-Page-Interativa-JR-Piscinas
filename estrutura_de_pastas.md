@@ -50,3 +50,55 @@ meu-projeto-react/
 ### Dica Avançada: Arquitetura Baseada em Features
 Para projetos muito grandes, é comum agrupar os arquivos por funcionalidade em uma pasta `features/`. 
 Por exemplo: `features/auth/` conteria seus próprios componentes, hooks e serviços exclusivamente relacionados à autenticação do sistema.
+
+---
+
+Biblioteca usada no projeto: Ecossitema Radix UI
+
+`npm install @radix-ui/react-dialog`
+
+---- 
+
+# 🧠 O que são Bibliotecas de Componentes "Headless"?
+
+Em inglês, **Headless** significa literalmente *"sem cabeça"*. No desenvolvimento frontend, isso significa que a biblioteca fornece apenas a **lógica de funcionamento**, sem nenhum **estilo visual** (zero CSS).
+
+---
+
+## ⚖️ A Divisão de Responsabilidades
+
+Todo componente interativo na web precisa de duas coisas:
+
+| Camada | Responsabilidade | Quem faz no Headless? |
+| :--- | :--- | :--- |
+| **Lógica / Comportamento** ⚙️ | O que o componente *faz*: acessibilidade (ARIA), navegação por teclado (`Tab`, `Esc`, setas), foco do cursor, abertura e fechamento. | **A biblioteca Headless** (ex.: Radix UI) |
+| **Estilo / Aparência** 🎨 | Como o componente se *parece*: cores, bordas, sombras, espaçamento, fontes e animações. | **Você** (usando CSS Modules, Tailwind, etc.) |
+
+---
+
+## 🥊 Comparação: Tradicional vs. Headless
+
+* 🍰 **Bibliotecas Tradicionais (ex.: Bootstrap, Material UI):**
+  * Entregam visual pronto e comportamentos juntos.
+  * **Problema:** Mudar o design padrão exige lutar contra o CSS da biblioteca, muitas vezes precisando forçar estilos com regras complexas.
+
+* 🧩 **Bibliotecas Headless (ex.: Radix UI, Headless UI):**
+  * Entregam componentes funcionais sem nenhuma classe ou estilo embutido.
+  * **Vantagem:** O design é 100% customizável desde a primeira linha de código, sem risco de conflito de estilos.
+
+---
+
+## 🛠️ Por que usar?
+
+1. ♿ **Acessibilidade Completa (A11y):** Cuida de regras complexas da W3C automaticamente, tornando o app navegável para leitores de tela e pessoas com deficiência.
+2. ⌨️ **Comportamentos de Teclado Nativos:** Garante que teclas como `Esc` fechem modais e que o `Tab` permaneça dentro de janelas abertas (Focus Trap).
+3. 🎨 **Liberdade Visual Absoluta:** O código CSS pode ser escrito da forma que a equipe preferir (CSS Modules, Tailwind CSS, styled-components).
+4. 🏢 **Padrão de Mercado:** É a base usada por ferramentas modernas como o **shadcn/ui**.
+
+---
+
+📄 Dialog / Modal (@radix-ui/react-dialog): Um link que abre uma janela modal sobreposta (por exemplo, para ler os "Termos de Uso" ou "Políticas de Privacidade" sem sair da página).
+
+npm install @radix-ui/react-dialog
+
+----

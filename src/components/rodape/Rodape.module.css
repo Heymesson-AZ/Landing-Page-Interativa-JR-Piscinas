@@ -1,0 +1,299 @@
+/* Rodape.module.css - Rodapé Fino, Compacto e Elegante */
+
+/* Container principal do rodapé */
+.rodape {
+  background-color: #050c15;
+  border-top: 1px solid #0f243b;
+  color: #94a3b8;
+  padding: 1.25rem 1.5rem; /* 📏 Altura fina e elegante */
+  font-size: 0.9rem;
+}
+
+.container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  align-items: center;
+}
+
+/* 🧭 1. Navegação alinhada com ícones */
+.navegacao {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid #0f253e;
+}
+
+.link {
+  color: #bae6fd;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.88rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.link:hover {
+  color: #38bdf8;
+  background-color: rgba(56, 189, 248, 0.1);
+  transform: translateY(-1px);
+}
+
+/* 📄 2. Linha inferior compacta */
+.linhaInferior {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 0.75rem;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 640px) {
+  .linhaInferior {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.65rem;
+  }
+}
+
+.secaoDev {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.secaoDev span {
+  color: #94a3b8;
+}
+
+.secaoDev strong {
+  color: #e2e8f0;
+}
+
+.linkGithub {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #38bdf8;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background-color: rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.linkGithub:hover {
+  background-color: rgba(56, 189, 248, 0.18);
+  color: #7dd3fc;
+  border-color: #38bdf8;
+}
+
+/* Botão que abre o modal */
+.botaoTermos {
+  background: transparent;
+  border: 1px solid #0369a1;
+  color: #7dd3fc;
+  padding: 0.35rem 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.82rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.botaoTermos:hover {
+  background-color: rgba(56, 189, 248, 0.12);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* --- Estilos do Radix Dialog (Políticas e Termos) --- */
+
+/* 🌫️ Fundo escuro atrás do modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(5, 12, 21, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 200;
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* 📄 Caixa do modal centralizada na tela */
+.conteudoModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f8fafc;
+  color: #0f172a;
+  padding: 1.75rem 2rem;
+  border-radius: 14px;
+  width: 92%;
+  max-width: 620px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  border: 1px solid #cbd5e1;
+  z-index: 201;
+  animation: modalScale 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalScale {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* 🏷️ Cabeçalho do modal */
+.tituloModal {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0284c7;
+  margin: 0 0 0.35rem 0;
+}
+
+.subtituloModal {
+  font-size: 0.86rem;
+  color: #64748b;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* 📜 Corpo rolável do modal */
+.corpoModal {
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Barra de rolagem personalizada */
+.corpoModal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.corpoModal::-webkit-scrollbar-track {
+  background: #e2e8f0;
+  border-radius: 4px;
+}
+
+.corpoModal::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 4px;
+}
+
+.corpoModal::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* 📦 Cartões individuais para cada seção dos termos */
+.secaoTermo {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.secaoTermo h4 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #0f243b;
+  margin: 0 0 0.4rem 0;
+}
+
+.secaoTermo p {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: #334155;
+  margin: 0;
+}
+
+.secaoTermo ul {
+  margin: 0.5rem 0 0 1.1rem;
+  padding: 0;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: #334155;
+}
+
+.secaoTermo li {
+  margin-bottom: 0.35rem;
+}
+
+.secaoTermo strong {
+  color: #0369a1;
+}
+
+/* 🔘 Rodapé com ação de fechar */
+.rodapeModal {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.botaoFechar {
+  padding: 0.6rem 1.35rem;
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+}
+
+.botaoFechar:hover {
+  background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+}

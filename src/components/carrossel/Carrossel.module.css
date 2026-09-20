@@ -1,0 +1,82 @@
+/* Carrossel.module.css - Paleta Fria e Confortável */
+
+.carrosselWrapper {
+  width: 100%;
+  max-width: 1020px;
+  margin: 1.5rem auto;
+  padding: 0 1rem;
+}
+
+.viewport {
+  overflow: hidden; /* 🪟 Esconde os slides de fora */
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #bfd7ea;
+  box-shadow: 0 12px 32px rgba(9, 23, 40, 0.1);
+  background-color: #0b1a2d;
+}
+
+.container {
+  display: flex; /* 🚋 Alinha os slides lado a lado */
+}
+
+.slide {
+  flex: 0 0 100%; /* 🖼️ Cada slide ocupa 100% da largura */
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.imagem {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Faixa da Legenda com fundo frio e agradável */
+.legenda {
+  text-align: center;
+  padding: 1.1rem 1.5rem;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #0c233c; /* 🖋️ Azul ardósia profundo, fácil de ler */
+  background: linear-gradient(180deg, #f3f8fd 0%, #e3effa 100%);
+  border-top: 1px solid #c9e0f2;
+  margin: 0;
+}
+
+.controles {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+/* Botões com tom azul piscina profissional */
+.botao {
+  padding: 0.65rem 1.6rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 1px solid #0284c7;
+  background: #0284c7;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.botao:hover {
+  background: #0369a1;
+  border-color: #075985;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+}
+
+.botao:active {
+  transform: translateY(0);
+}

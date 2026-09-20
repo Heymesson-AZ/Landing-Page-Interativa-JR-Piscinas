@@ -1,0 +1,185 @@
+/* Cartao.module.css - Paleta Fria, Suave e Sem Fundo Branco */
+
+.cartao {
+  background: linear-gradient(
+    145deg,
+    #f7fafd 0%,
+    #ebf4fa 100%
+  ); /* ❄️ Fundo gelo límpido e relaxante */
+  border-radius: 16px;
+  padding: 2.25rem;
+  box-shadow: 0 14px 34px rgba(9, 23, 40, 0.08);
+  border: 1px solid #c0d9ed;
+  max-width: 620px;
+  margin: 1.5rem auto;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cartao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(9, 23, 40, 0.12);
+}
+
+/* Cabeçalho */
+.cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  border-bottom: 1px solid #d2e5f5;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.logo {
+  height: 62px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #c4dcf0;
+  padding: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(9, 23, 40, 0.08);
+}
+
+.infoCabecalho {
+  display: flex;
+  flex-direction: column;
+}
+
+.nome {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #0c233c; /* 🌊 Marinho profundo */
+  margin: 0;
+  line-height: 1.2;
+}
+
+.profissional {
+  font-size: 0.95rem;
+  color: #0369a1; /* 🏊‍♂️ Azul piscina */
+  font-weight: 600;
+  margin: 0.25rem 0 0.4rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.segmento {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background-color: #dbeafe;
+  color: #0284c7;
+  border: 1px solid #bfdbfe;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+/* Descrição */
+.descricao {
+  font-size: 0.98rem;
+  color: #1e3a5f; /* 🖋️ Contraste suave e confortável */
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+/* Regiões Atendidas */
+.locais {
+  margin-bottom: 1.5rem;
+}
+
+.subtitulo {
+  display: block;
+  font-size: 0.85rem;
+  color: #0c233c;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.tag {
+  background-color: #e0f2fe;
+  color: #0369a1;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #bce2fa;
+  transition: all 0.2s ease;
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.tag:hover {
+  background-color: #0284c7;
+  color: #ffffff;
+  border-color: #0284c7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+}
+
+/* Diferenciais e Medidas de Segurança */
+.diferenciais {
+  margin-bottom: 1.5rem;
+  background-color: #e4f0f9;
+  padding: 1.1rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid #cadff1;
+}
+
+.listaDiferenciais {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.itemDiferencial {
+  font-size: 0.88rem;
+  color: #0d2b4d;
+  line-height: 1.45;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.iconeCheck {
+  color: #0284c7;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+/* Rodapé */
+.rodape {
+  margin-top: 1.25rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid #d2e5f5;
+  text-align: center;
+  color: #64829f;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.rodape small {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+}
