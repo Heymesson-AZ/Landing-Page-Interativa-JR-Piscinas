@@ -2,12 +2,15 @@ import logo from "../assets/logo.png";
 
 export const cartaoPadrao = {
   nomeEmpresa: "JM Piscinas",
-  profissional: "Sr. José Mauro",
+  profissional: " José Mauro",
   segmento: "Limpeza & Manutenção de Piscinas",
-  descricao:
-    "Especialista em limpeza física e tratamento químico completo de piscinas residenciais e comerciais. Foco na conservação da água, eliminação de impurezas e procedimentos seguros no manuseio de químicos para o bem-estar da sua família.",
+  descricao: [
+    "A JM Piscinas nasceu com o propósito de oferecer serviços de qualidade, cuidado e responsabilidade, contando com mais de 20 anos de experiência no segmento de piscinas.",
+    " Atuamos com limpeza e manutenção de piscinas, proporcionando mais praticidade aos nossos clientes e garantindo um ambiente limpo, agradável e pronto para os momentos de lazer.",
+  ],
+
   cidades: ["Arniqueiras", "Park Way", "Vicente Pires", "Guará"],
-  anoFundacao: "2015",
+  anoFundacao: "2001",
   diferenciais: [
     "Tratamento químico com equilíbrio preciso de pH, cloro e alcalinidade",
     "Uso de ferramentas profissionais e EPIs para total segurança",
