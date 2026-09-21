@@ -29,17 +29,16 @@ export function Contato({
   return (
     <section className={styles.secaoContato} aria-label="Seção de Contato">
       <div className={styles.container}>
-        <span className={styles.etiqueta}>Atendimento Rápido</span>
         <h2 className={styles.titulo}>Solicite seu Orçamento</h2>
         <p className={styles.subtitulo}>
           Entre em contato agora mesmo para agendar uma visita ou tirar dúvidas.
-          Atendimento ágil, sem compromisso e com foco na qualidade da sua água.
+          Atendimento ágil, com compromisso e foco na qualidade da sua água.
         </p>
 
         <div className={styles.gridContato}>
           {/* 📲 Coluna 1: Ações Rápidas de 1 Clique */}
           <div className={styles.colunaAcoes}>
-            <h3 className={styles.tituloColuna}>Canais Diretos</h3>
+            <h3 className={styles.tituloColuna}>Canais de Atendimento</h3>
             <p className={styles.descricaoColuna}>
               Prefere falar diretamente conosco? Escolha o canal de sua
               preferência abaixo:

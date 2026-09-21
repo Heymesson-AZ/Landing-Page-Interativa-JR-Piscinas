@@ -66,7 +66,7 @@ export function Menu() {
               data-tooltip-pos="baixo"
             >
               <FaInfoCircle aria-hidden="true" />
-              <span>Sobre</span>
+              <span>Quem somos</span>
             </a>
           </li>
           <li>
@@ -92,7 +92,7 @@ export function Menu() {
               data-tooltip-pos="baixo"
             >
               <FaUserTie aria-hidden="true" />
-              <span>Sobre nós</span>
+              <span>Sobre</span>
             </a>
           </li>
         </ul>
