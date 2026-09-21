@@ -22,7 +22,7 @@ export default function App() {
             Galeria de Serviços
           </span>
           <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Água Cristalina e Tratamento Completo
+            Limpeza e Manutenção de Piscinas
           </h1>
         </div>
         <Carrossel />

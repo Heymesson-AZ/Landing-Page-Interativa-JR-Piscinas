@@ -157,24 +157,6 @@ gitGraph
     commit id: "Continuando trabalho..."
 ```
 
-### 1️⃣ Criar a branch `dev` (Fazer uma única vez)
-
-Para criar e já entrar na branch `dev`:
-
-```bash
-git checkout -b dev
-```
-
-> **Para verificar em qual branch você está:**
->
-> ```bash
-> git branch
-> ```
->
-> A branch ativa terá um asterisco verde na frente: `* dev`.
-
----
-
 ### 2️⃣ Seu Dia a Dia de Trabalho (Sempre na branch `dev`)
 
 Faça suas alterações no código, teste à vontade e faça commits normalmente:
