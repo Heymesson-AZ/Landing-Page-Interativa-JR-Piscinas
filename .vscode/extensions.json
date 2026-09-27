@@ -13,6 +13,7 @@
     "naumovs.color-highlight",
     "usernamehw.errorlens",
     "pkief.material-icon-theme",
-    "dracula-theme.theme-dracula"
+    "dracula-theme.theme-dracula",
+    "equinusocio.vsc-material-theme-icons"
   ]
 }
