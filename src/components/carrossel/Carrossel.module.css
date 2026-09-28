@@ -1,82 +1,380 @@
-/* Carrossel.module.css - Paleta Fria e Confortável */
+/* ==========================================================================
+   CARROSSEL 3D COVERFLOW - JM PISCINAS
+   Exibe 5 fotos em perspectiva tridimensional com rotação e reflexo no chão
+   ========================================================================== */
 
-.carrosselWrapper {
+/* 1. Container geral do componente */
+.carrossel3DWrapper {
   width: 100%;
-  max-width: 1020px;
-  margin: 1.5rem auto;
+  max-width: 1140px;
+  margin: 1.5rem auto 2.5rem;
   padding: 0 1rem;
+  user-select: none;
+  touch-action: pan-y;
+  cursor: grab;
 }
 
-.viewport {
-  overflow: hidden; /* 🪟 Esconde os slides de fora */
+.carrossel3DWrapper:active {
+  cursor: grabbing;
+}
+
+/* 2. Palco com Perspectiva Tridimensional */
+.palco3D {
+  position: relative;
   width: 100%;
-  border-radius: 16px;
-  border: 1px solid #bfd7ea;
-  box-shadow: 0 12px 32px rgba(9, 23, 40, 0.1);
-  background-color: #0b1a2d;
-}
-
-.container {
-  display: flex; /* 🚋 Alinha os slides lado a lado */
-}
-
-.slide {
-  flex: 0 0 100%; /* 🖼️ Cada slide ocupa 100% da largura */
-  min-width: 0;
+  height: 520px;
+  perspective: 1200px; /* Distância focal dos olhos do visitante até o palco */
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 2rem 0;
 }
 
-.imagem {
+@media (max-width: 768px) {
+  .palco3D {
+    height: 420px;
+    perspective: 850px;
+  }
+}
+
+@media (max-width: 480px) {
+  .palco3D {
+    height: 360px;
+    perspective: 650px;
+  }
+}
+
+/* Cilindro central que preserva a cena em 3 dimensões */
+.cilindro3D {
+  position: relative;
   width: 100%;
-  height: 420px;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* ==========================================================================
+   CARDS DAS FOTOS EM 3D
+   ========================================================================== */
+
+.card3D {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 280px;
+  height: 440px;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #0b1a2d;
+  will-change: transform, opacity;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+
+  /* Transição suave em 60 FPS acelerada por hardware (GPU) */
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.85, 0.3, 1),
+    opacity 0.45s ease,
+    filter 0.45s ease,
+    box-shadow 0.45s ease;
+
+  /* Efeito de reflexo de espelho d'água no chão (Coverflow clássico) */
+  -webkit-box-reflect: below 8px linear-gradient(to bottom, transparent 75%, rgba(0, 0, 0, 0.25) 100%);
+}
+
+@media (max-width: 768px) {
+  .card3D {
+    width: 220px;
+    height: 350px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card3D {
+    width: 175px;
+    height: 280px;
+    border-radius: 12px;
+  }
+}
+
+.molduraCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #081729;
+}
+
+.imagemCard {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* Faixa da Legenda com fundo frio e agradável */
-.legenda {
-  text-align: center;
-  padding: 1.1rem 1.5rem;
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: #0c233c; /* 🖋️ Azul ardósia profundo, fácil de ler */
-  background: linear-gradient(180deg, #f3f8fd 0%, #e3effa 100%);
-  border-top: 1px solid #c9e0f2;
-  margin: 0;
+/* Sombra e penumbra que aumentam a profundidade nas fotos mais distantes */
+.sombraProfundidade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
 
-.controles {
-  display: flex;
-  justify-content: center;
-  gap: 1.25rem;
-  margin-top: 1.25rem;
+/* ==========================================================================
+   DISTRIBUIÇÃO GEOMÉTRICA DOS 5 SLIDES
+   ========================================================================== */
+
+/* --- 1. Centro (Foto Ativa em Destaque) --- */
+.card3D[data-offset="0"] {
+  transform: translate(-50%, -50%) translateX(0px) translateZ(110px) rotateY(0deg) scale(1.06);
+  z-index: 10;
+  opacity: 1;
+  filter: brightness(1);
+  border: 2px solid #38bdf8;
+  box-shadow: 0 20px 48px rgba(2, 132, 199, 0.45), 0 0 28px rgba(56, 189, 248, 0.35);
+  cursor: default;
 }
 
-/* Botões com tom azul piscina profissional */
-.botao {
-  padding: 0.65rem 1.6rem;
-  font-size: 0.95rem;
-  font-weight: 600;
+.card3D[data-offset="0"] .sombraProfundidade {
+  opacity: 0.15;
+}
+
+/* --- 2. Vizinhas Imediatas (Offset ±1) - Propriedades compartilhadas --- */
+.card3D[data-offset="-1"],
+.card3D[data-offset="1"] {
+  z-index: 8;
+  opacity: 0.85;
+  filter: brightness(0.8);
   cursor: pointer;
-  border-radius: 8px;
+}
+
+.card3D[data-offset="-1"] {
+  transform: translate(-50%, -50%) translateX(-230px) translateZ(-60px) rotateY(32deg) scale(0.88);
+}
+
+.card3D[data-offset="1"] {
+  transform: translate(-50%, -50%) translateX(230px) translateZ(-60px) rotateY(-32deg) scale(0.88);
+}
+
+/* --- 3. Vizinhas Extremas (Offset ±2) - Propriedades compartilhadas --- */
+.card3D[data-offset="-2"],
+.card3D[data-offset="2"] {
+  z-index: 6;
+  opacity: 0.48;
+  filter: brightness(0.55);
+  cursor: pointer;
+}
+
+.card3D[data-offset="-2"] {
+  transform: translate(-50%, -50%) translateX(-410px) translateZ(-200px) rotateY(52deg) scale(0.72);
+}
+
+.card3D[data-offset="2"] {
+  transform: translate(-50%, -50%) translateX(410px) translateZ(-200px) rotateY(-52deg) scale(0.72);
+}
+
+/* --- 4. Fotos Ocultas (Fora dos 5 visíveis) --- */
+.cardOculto {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translate(-50%, -50%) translateZ(-350px) scale(0.5) !important;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   ADAPTAÇÃO RESPONSIVA DAS DISTÂNCIAS 3D
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .card3D[data-offset="-1"] {
+    transform: translate(-50%, -50%) translateX(-170px) translateZ(-50px) rotateY(28deg) scale(0.86);
+  }
+  .card3D[data-offset="1"] {
+    transform: translate(-50%, -50%) translateX(170px) translateZ(-50px) rotateY(-28deg) scale(0.86);
+  }
+  .card3D[data-offset="-2"] {
+    transform: translate(-50%, -50%) translateX(-300px) translateZ(-160px) rotateY(46deg) scale(0.7);
+  }
+  .card3D[data-offset="2"] {
+    transform: translate(-50%, -50%) translateX(300px) translateZ(-160px) rotateY(-46deg) scale(0.7);
+  }
+}
+
+@media (max-width: 640px) {
+  .card3D[data-offset="-1"] {
+    transform: translate(-50%, -50%) translateX(-110px) translateZ(-40px) rotateY(24deg) scale(0.84);
+  }
+  .card3D[data-offset="1"] {
+    transform: translate(-50%, -50%) translateX(110px) translateZ(-40px) rotateY(-24deg) scale(0.84);
+  }
+  .card3D[data-offset="-2"],
+  .card3D[data-offset="2"] {
+    opacity: 0.35;
+  }
+  .card3D[data-offset="-2"] {
+    transform: translate(-50%, -50%) translateX(-195px) translateZ(-130px) rotateY(40deg) scale(0.68);
+  }
+  .card3D[data-offset="2"] {
+    transform: translate(-50%, -50%) translateX(195px) translateZ(-130px) rotateY(-40deg) scale(0.68);
+  }
+}
+
+/* ==========================================================================
+   PAINEL DE LEGENDA E DICA TÉCNICA
+   ========================================================================== */
+
+.painelLegenda {
+  max-width: 680px;
+  margin: 1.5rem auto 1rem;
+  padding: 1.2rem 1.6rem;
+  text-align: center;
+  background: linear-gradient(180deg, #f0f7fe 0%, #e2effa 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.08);
+}
+
+.cabecalhoInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.6rem;
+}
+
+.badgeDica {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #bae6fd;
+  color: #0369a1;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 6px rgba(2, 132, 199, 0.1);
+}
+
+.tituloServico {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0c233c;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+@media (max-width: 640px) {
+  .tituloServico {
+    font-size: 1.1rem;
+  }
+}
+
+/* ==========================================================================
+   BARRA DE ROLAGEM 3D INTERATIVA E BOTÕES
+   ========================================================================== */
+
+.controlesWrapper {
+  max-width: 680px;
+  margin: 0.5rem auto 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Botões de navegação circular */
+.botaoNav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
   border: 1px solid #0284c7;
   background: #0284c7;
   color: #ffffff;
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
 }
 
-.botao:hover {
+.botaoNav:hover {
   background: #0369a1;
-  border-color: #075985;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+  transform: scale(1.06);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.4);
 }
 
-.botao:active {
-  transform: translateY(0);
+.botaoNav:active {
+  transform: scale(0.96);
+}
+
+/* Trilho do slider */
+.trilhoBarra {
+  position: relative;
+  flex: 1;
+  height: 12px;
+  background: #e2e8f0;
+  border-radius: 9999px;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+}
+
+.preenchimentoTrilho {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #38bdf8 0%, #0284c7 100%);
+  border-radius: 9999px;
+  pointer-events: none;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.barraRolagem3D {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+  margin: 0;
+}
+
+.barraRolagem3D:focus {
+  outline: none;
+}
+
+/* Botão deslizante (Thumb) - Chrome/Safari/Edge */
+.barraRolagem3D::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #0284c7;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.45);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.barraRolagem3D::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.6);
+}
+
+/* Botão deslizante (Thumb) - Firefox */
+.barraRolagem3D::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #0284c7;
+  box-shadow: 0 2px 10px rgba(2, 132, 199, 0.45);
+  cursor: pointer;
 }

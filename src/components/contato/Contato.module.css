@@ -1,5 +1,9 @@
-/* Contato.module.css - Seção de Contato com Ações Diretas e QR Code */
+/* ==========================================================================
+   SEÇÃO DE CONTATO - JM PISCINAS
+   Ações rápidas de 1 clique (WhatsApp / Telefone) e QR Code
+   ========================================================================== */
 
+/* 1. Bloco principal da seção em tom escuro contrastante */
 .secaoContato {
   background: linear-gradient(135deg, #091728 0%, #0e2b4a 50%, #081a2e 100%);
   border-top: 1px solid #1a3c63;
@@ -32,20 +36,20 @@
 .titulo {
   font-size: 2.2rem;
   font-weight: 800;
-  color: #f0f9ff; /* ❄️ Branco gelo de alto contraste */
+  color: #f0f9ff;
   margin: 0 0 0.85rem 0;
   letter-spacing: -0.5px;
 }
 
 .subtitulo {
   font-size: 1.05rem;
-  color: #bae6fd; /* 🌊 Azul suave para leitura confortável */
+  color: #bae6fd;
   line-height: 1.65;
   margin: 0 auto 2.5rem auto;
   max-width: 680px;
 }
 
-/* 📱 Grid de Contato: Coluna de Ações + Coluna de QR Code */
+/* 2. Grid de 2 Colunas: Ações Diretas + QR Code */
 .gridContato {
   display: grid;
   grid-template-columns: 1fr;
@@ -60,7 +64,7 @@
   }
 }
 
-/* --- Coluna 1: Ações Diretas --- */
+/* --- Coluna 1: Botões de Ação Imediata --- */
 .colunaAcoes {
   display: flex;
   flex-direction: column;
@@ -88,8 +92,9 @@
   gap: 1rem;
 }
 
-.botaoWhatsapp {
-  background-color: #22c55e;
+/* Estilos base compartilhados entre os botões (evitando redundâncias) */
+.botaoWhatsapp,
+.botaoTelefone {
   color: #ffffff;
   padding: 1rem 1.4rem;
   border-radius: 12px;
@@ -97,34 +102,34 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  transition: all 0.25s ease;
-  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.botaoWhatsapp:hover,
+.botaoTelefone:hover {
+  transform: translateY(-2px);
+}
+
+/* Variação WhatsApp (Verde) */
+.botaoWhatsapp {
+  background-color: #22c55e;
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.35);
 }
 
 .botaoWhatsapp:hover {
   background-color: #16a34a;
-  transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(34, 197, 94, 0.45);
 }
 
+/* Variação Telefone (Azul) */
 .botaoTelefone {
   background-color: #0284c7;
-  color: #ffffff;
-  padding: 1rem 1.4rem;
-  border-radius: 12px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: all 0.25s ease;
   box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .botaoTelefone:hover {
   background-color: #0369a1;
-  transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(2, 132, 199, 0.45);
 }
 
@@ -187,13 +192,9 @@
   color: #cbd5e1;
 }
 
-/* --- Coluna 2: Card de QR Code --- */
+/* --- Coluna 2: Card de QR Code para Escaneamento --- */
 .cardQrCode {
-  background: linear-gradient(
-    180deg,
-    rgba(14, 38, 64, 0.75) 0%,
-    rgba(8, 26, 46, 0.9) 100%
-  );
+  background: linear-gradient(180deg, rgba(14, 38, 64, 0.75) 0%, rgba(8, 26, 46, 0.9) 100%);
   border: 1px solid rgba(56, 189, 248, 0.25);
   border-radius: 16px;
   padding: 1.5rem 1.25rem;
@@ -230,10 +231,7 @@
   border-radius: 14px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
   border: 2px solid rgba(56, 189, 248, 0.35);
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    border-color 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   display: flex;
   align-items: center;
   justify-content: center;
