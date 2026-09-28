@@ -1,6 +1,9 @@
-/* Menu.module.css - Paleta Fria Náutica & Confortável */
+/* ==========================================================================
+   MENU SUPERIOR DE NAVEGAÇÃO - JM PISCINAS
+   Barra fixa/translúcida, identidade visual da marca e links de ancoragem
+   ========================================================================== */
 
-/* 1. Barra principal 🧭 */
+/* 1. Barra principal de navegação (Fixa no topo com efeito vidro/blur) */
 .cabecalho {
   display: flex;
   align-items: center;
@@ -13,9 +16,10 @@
   top: 0;
   z-index: 100;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-/* 2. Área da Marca da Empresa (Logo + Nome em Destaque) 🐬 */
+/* 2. Área da Marca da Empresa (Logotipo circular + Tipografia de destaque) */
 .marca {
   display: flex;
   align-items: center;
@@ -28,7 +32,7 @@
   transform: translateY(-1px);
 }
 
-/* Logo no Menu: Mesmo layout do cartão (redonda, branca por dentro, borda elegante e sombra) */
+/* Logotipo circular com borda e realce em hover */
 .logoImg {
   height: 52px;
   width: 52px;
@@ -50,7 +54,7 @@
   box-shadow: 0 4px 16px rgba(56, 189, 248, 0.6);
 }
 
-/* Tipografia da Empresa em Destaque */
+/* Informações textuais da marca (Nome + Slogan) */
 .infoMarca {
   display: flex;
   flex-direction: column;
@@ -80,7 +84,7 @@
   margin-top: 1px;
 }
 
-/* 3. Container dos links de navegação 🔗 */
+/* 3. Lista e container dos links de navegação */
 .navegacao ul {
   display: flex;
   align-items: center;
@@ -90,27 +94,27 @@
   padding: 0;
 }
 
-/* 4. Estilo individual de cada link */
+/* 4. Estilo individual de cada link do menu */
 .link {
   text-decoration: none;
-  color: #e0f2fe; /* ❄️ Azul gelo suave e confortável */
+  color: #e0f2fe; /* Azul gelo suave e confortável */
   font-weight: 500;
   font-size: 0.92rem;
   padding: 0.35rem 0.65rem;
   border-radius: 8px;
-  transition: all 0.2s ease;
   position: relative;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
+  transition: color 0.2s ease, background-color 0.2s ease;
 }
 
 .link:hover {
-  color: #38bdf8; /* 🌊 Destaque azul piscina brilhante */
+  color: #38bdf8; /* Realce azul piscina vibrante */
   background-color: rgba(56, 189, 248, 0.12);
 }
 
-/* 📱 Responsividade para telas menores */
+/* 5. Responsividade para dispositivos móveis e tablets */
 @media (max-width: 860px) {
   .cabecalho {
     padding: 0.75rem 1rem;

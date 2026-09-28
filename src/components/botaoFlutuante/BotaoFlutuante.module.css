@@ -1,39 +1,45 @@
-/* BotaoFlutuante.module.css */
+/* ==========================================================================
+   BOTÃO FLUTUANTE DE WHATSAPP / CONTATO
+   ========================================================================== */
 
 .botao {
-  position: fixed !important;
+  /* Posicionamento fixo sobreposto no canto inferior direito */
+  position: fixed;
   bottom: 24px;
   right: 24px;
   z-index: 9999;
 
+  /* Dimensões circulares perfeitas */
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+
+  /* Centralização do ícone */
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
+  /* Gradiente verde WhatsApp com borda translúcida */
   background: linear-gradient(135deg, #25d366 0%, #16a34a 100%);
   color: #ffffff;
   text-decoration: none;
-  box-shadow:
-    0 6px 20px rgba(34, 197, 94, 0.45),
-    0 2px 6px rgba(0, 0, 0, 0.2);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.35);
 
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+  /* Sombreamento com brilho suave e profundidade */
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.45), 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  /* Transição fluida de interação */
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
 }
 
+/* Efeito ao passar o cursor */
 .botao:hover {
   transform: scale(1.1) translateY(-2px);
-  box-shadow:
-    0 10px 25px rgba(34, 197, 94, 0.6),
-    0 4px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.6), 0 4px 10px rgba(0, 0, 0, 0.25);
 }
 
+/* Feedback tátil ao clicar */
 .botao:active {
   transform: scale(0.95);
 }

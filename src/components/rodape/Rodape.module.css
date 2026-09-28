@@ -1,11 +1,14 @@
-/* Rodape.module.css - Rodapé Fino, Compacto e Elegante */
+/* ==========================================================================
+   RODAPÉ INSTITUCIONAL & MODAL DE TERMOS - JM PISCINAS
+   Navegação secundária rápida, créditos do projeto e modal LGPD com Radix UI
+   ========================================================================== */
 
-/* Container principal do rodapé */
+/* 1. Container geral do rodapé */
 .rodape {
   background-color: #050c15;
   border-top: 1px solid #0f243b;
   color: #94a3b8;
-  padding: 1.25rem 1.5rem; /* 📏 Altura fina e elegante */
+  padding: 1.25rem 1.5rem;
   font-size: 0.9rem;
 }
 
@@ -19,7 +22,7 @@
   align-items: center;
 }
 
-/* 🧭 1. Navegação alinhada com ícones */
+/* 2. Navegação secundária centralizada */
 .navegacao {
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +44,7 @@
   gap: 0.45rem;
   padding: 0.25rem 0.55rem;
   border-radius: 6px;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
 
 .link:hover {
@@ -50,7 +53,7 @@
   transform: translateY(-1px);
 }
 
-/* 📄 2. Linha inferior compacta */
+/* 3. Linha inferior: Créditos ao desenvolvedor e botão de Termos */
 .linhaInferior {
   display: flex;
   flex-wrap: wrap;
@@ -84,18 +87,24 @@
   color: #e2e8f0;
 }
 
-.linkGithub {
+/* Base compartilhada entre botão de ação e link externo do rodapé */
+.linkGithub,
+.botaoTermos {
   display: inline-flex;
   align-items: center;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Link para o GitHub do autor */
+.linkGithub {
   gap: 0.4rem;
   color: #38bdf8;
   text-decoration: none;
-  font-weight: 500;
   padding: 0.2rem 0.6rem;
-  border-radius: 6px;
   background-color: rgba(56, 189, 248, 0.08);
   border: 1px solid rgba(56, 189, 248, 0.2);
-  transition: all 0.2s ease;
   font-size: 0.8rem;
 }
 
@@ -105,20 +114,15 @@
   border-color: #38bdf8;
 }
 
-/* Botão que abre o modal */
+/* Botão acionador do Modal de Termos */
 .botaoTermos {
+  gap: 0.45rem;
   background: transparent;
   border: 1px solid #0369a1;
   color: #7dd3fc;
   padding: 0.35rem 0.85rem;
-  border-radius: 6px;
   cursor: pointer;
-  font-weight: 500;
   font-size: 0.82rem;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
 }
 
 .botaoTermos:hover {
@@ -127,19 +131,22 @@
   color: #38bdf8;
 }
 
-/* --- Estilos do Radix Dialog (Políticas e Termos) --- */
+/* ==========================================================================
+   4. MODAL RADIX UI (Políticas de Privacidade & Termos LGPD)
+   ========================================================================== */
 
-/* 🌫️ Fundo escuro atrás do modal */
+/* Fundo escurecido com desfoque (Backdrop) */
 .overlay {
   position: fixed;
   inset: 0;
   background-color: rgba(5, 12, 21, 0.8);
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
   z-index: 200;
   animation: fadeIn 0.2s ease-out;
 }
 
-/* 📄 Caixa do modal centralizada na tela */
+/* Janela central do modal */
 .conteudoModal {
   position: fixed;
   top: 50%;
@@ -160,6 +167,7 @@
   animation: modalScale 0.25s ease-out;
 }
 
+/* Animações de entrada do modal */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -180,7 +188,7 @@
   }
 }
 
-/* 🏷️ Cabeçalho do modal */
+/* Cabeçalho do modal */
 .tituloModal {
   display: flex;
   align-items: center;
@@ -199,7 +207,7 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
-/* 📜 Corpo rolável do modal */
+/* Corpo rolável com lista de cláusulas e políticas */
 .corpoModal {
   overflow-y: auto;
   flex: 1;
@@ -207,9 +215,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 #e2e8f0;
 }
 
-/* Barra de rolagem personalizada */
+/* Estilização da barra de rolagem para navegadores baseados em WebKit */
 .corpoModal::-webkit-scrollbar {
   width: 6px;
 }
@@ -228,7 +238,7 @@
   background: #64748b;
 }
 
-/* 📦 Cartões individuais para cada seção dos termos */
+/* Seções de texto e regras do termo */
 .secaoTermo {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
@@ -267,7 +277,7 @@
   color: #0369a1;
 }
 
-/* 🔘 Rodapé com ação de fechar */
+/* Rodapé do modal com botão de confirmação */
 .rodapeModal {
   display: flex;
   justify-content: flex-end;
@@ -279,17 +289,17 @@
 .botaoFechar {
   padding: 0.6rem 1.35rem;
   background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   font-weight: 600;
   font-size: 0.88rem;
   cursor: pointer;
-  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .botaoFechar:hover {

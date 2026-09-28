@@ -1,20 +1,18 @@
-/* Cartao.module.css - Paleta Fria, Suave e Sem Fundo Branco */
+/* ==========================================================================
+   CARTÃO INSTITUCIONAL DA EMPRESA - JM PISCINAS
+   Apresenta histórico, diferenciais e regiões atendidas
+   ========================================================================== */
 
+/* 1. Caixa principal do cartão com fundo gelo e relevo suave */
 .cartao {
-  background: linear-gradient(
-    145deg,
-    #f7fafd 0%,
-    #ebf4fa 100%
-  ); /* ❄️ Fundo gelo límpido e relaxante */
+  background: linear-gradient(145deg, #f7fafd 0%, #ebf4fa 100%);
   border-radius: 16px;
   padding: 2.25rem;
   box-shadow: 0 14px 34px rgba(9, 23, 40, 0.08);
   border: 1px solid #c0d9ed;
   max-width: 620px;
   margin: 1.5rem auto;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cartao:hover {
@@ -22,7 +20,7 @@
   box-shadow: 0 18px 40px rgba(9, 23, 40, 0.12);
 }
 
-/* Cabeçalho */
+/* 2. Cabeçalho: Logotipo circular e nomes */
 .cabecalho {
   display: flex;
   align-items: center;
@@ -56,14 +54,14 @@
 .nome {
   font-size: 1.55rem;
   font-weight: 700;
-  color: #0c233c; /* 🌊 Marinho profundo */
+  color: #0c233c; /* Azul marinho profundo */
   margin: 0;
   line-height: 1.2;
 }
 
 .profissional {
   font-size: 0.95rem;
-  color: #0369a1; /* 🏊‍♂️ Azul piscina */
+  color: #0369a1; /* Azul piscina intermediário */
   font-weight: 600;
   margin: 0.25rem 0 0.4rem 0;
   display: flex;
@@ -71,6 +69,7 @@
   gap: 0.4rem;
 }
 
+/* Selo de segmento de atuação */
 .segmento {
   display: inline-flex;
   align-items: center;
@@ -85,15 +84,15 @@
   width: fit-content;
 }
 
-/* Descrição */
+/* 3. Descrição institucional */
 .descricao {
   font-size: 0.98rem;
-  color: #1e3a5f; /* 🖋️ Contraste suave e confortável */
+  color: #1e3a5f;
   line-height: 1.65;
   margin-bottom: 1.5rem;
 }
 
-/* Regiões Atendidas */
+/* 4. Regiões e Cidades Atendidas */
 .locais {
   margin-bottom: 1.5rem;
 }
@@ -114,6 +113,7 @@
   gap: 0.55rem;
 }
 
+/* Pílulas das cidades atendidas */
 .tag {
   background-color: #e0f2fe;
   color: #0369a1;
@@ -137,7 +137,7 @@
   box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
 }
 
-/* Diferenciais e Medidas de Segurança */
+/* 5. Diferenciais e Segurança Técnica */
 .diferenciais {
   margin-bottom: 1.5rem;
   background-color: #e4f0f9;
@@ -171,7 +171,7 @@
   flex-shrink: 0;
 }
 
-/* Rodapé */
+/* 6. Rodapé do cartão */
 .rodape {
   margin-top: 1.25rem;
   padding-top: 0.85rem;
