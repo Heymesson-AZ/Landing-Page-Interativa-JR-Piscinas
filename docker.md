@@ -1,61 +1,38 @@
-# Landing Page Interativa - JR Piscinas
+# 🐳 Guia de Docker e Deploy - JM Piscinas
 
-Landing page moderna e interativa desenvolvida com **React**, **Vite**, **Tailwind CSS** e containerizada com **Docker**.
-
----
-
-## 📚 Guias do Projeto
-
-- 🐳 [Guia de Docker e Desenvolvimento Local](docker.md)
-- 🚀 [Guia de Commits e Deploy Contínuo na Vercel](commit.md)
-- 📁 [Estrutura de Pastas e Componentes](estrutura_de_pastas.md)
-- 🎨 [Guia de Ícones Utilizados](icones.md)
+Este projeto possui configuração completa com **Docker** e **Nginx**, pronto para testes em ambiente idêntico ao de produção ou deploy em servidores na nuvem (VPS, AWS, DigitalOcean, Railway, etc.).
 
 ---
 
-## 🚀 Como Executar
+## 🏗️ Como a Containerização Funciona
 
-### 1. Executando com Docker (Recomendado)
+O projeto utiliza um **Dockerfile Multi-Stage**:
+1. **Estágio Base:** Utiliza a imagem oficial `node:22-alpine` para instalar dependências.
+2. **Estágio Build:** Executa o `npm run build` compilando os arquivos JSX e processando o CSS com Tailwind v4.
+3. **Estágio Produção:** Imagem ultraleve do servidor web `nginx:alpine` que recebe os arquivos estáticos prontos de `/dist` e os entrega na porta `80`.
+
+---
+
+## 🚀 Comandos Rápidos
 
 Certifique-se de que o **Docker Desktop** esteja aberto no seu Windows:
 
 ```bash
-# Modo Desenvolvimento com Hot-Reload (http://localhost:3000)
-npm run docker:dev
+# 1. Construir e subir o container em segundo plano (http://localhost:3000)
+npm run docker:up
 
-# Modo Produção com Servidor Nginx (http://localhost:3000)
-npm run docker:prod
+# 2. Ver logs em tempo real do Nginx
+npm run docker:logs
 
-# Encerrar containers
+# 3. Encerrar e remover o container
 npm run docker:down
 ```
 
 ---
 
-### 2. Executando Localmente (Node.js)
+## ⚙️ Arquivos de Configuração
 
-Caso prefira rodar diretamente na máquina sem containers:
-
-```bash
-# Instalar dependências
-npm install
-
-# Servidor de desenvolvimento
-npm run dev
-
-# Compilar para produção
-npm run build
-```
-
----
-
-## 🛠️ Tecnologias Utilizadas
-
-- **React 19**
-- **Vite 8**
-- **Tailwind CSS 4**
-- **Radix UI Dialog**
-- **Embla Carousel**
-- **React Icons**
-- **Docker & Nginx**
-# Landing-Page-Interativa---JR-Piscinas
+- [`Dockerfile`](Dockerfile): Define o processo de compilação e a imagem final do Nginx.
+- [`docker-compose.yml`](docker-compose.yml): Orquestra o container `jr-piscinas-prod` mapeando a porta `3000` (máquina local) para a porta `80` (container Nginx).
+- [`nginx.conf`](nginx.conf): Habilita compressão Gzip, roteamento SPA (`try_files`) e cache com `immutable` para arquivos estáticos com hash.
+- [`.dockerignore`](.dockerignore): Ignora `node_modules`, `.git` e artefatos de build para acelerar o processo.

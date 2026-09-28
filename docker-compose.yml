@@ -1,0 +1,11 @@
+services:
+  app-prod:
+    container_name: jr-piscinas-prod
+    build:
+      context: .
+      target: production
+    ports:
+      - "3000:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
